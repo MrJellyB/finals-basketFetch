@@ -55,7 +55,7 @@ namespace Basket.ServerSide
         {
             //var dataGender = genderCollection.GetCollection<Gender>();
             //var doc = dataGender.FindAllAs<Gender>(); // exception
-            //List<Gender> dataGender = genderCollection.AsQueryable<Gender>().ToList();
+            List<GenderDTO> dataGender = genderCollection.AsQueryable<GenderDTO>().ToList();
             List<ProductDTO> dataProduct = productCollection.AsQueryable<ProductDTO>().ToList();
         }
 
