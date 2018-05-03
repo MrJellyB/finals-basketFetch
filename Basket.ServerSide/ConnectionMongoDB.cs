@@ -45,6 +45,9 @@ namespace Basket.ServerSide
             this.client = new MongoClient(connectionString);
             this.server = client.GetServer();
             this.database = server.GetDatabase("test");
+
+            // define the collections
+            this.GetCollectionsValues();
         }
         public void GetCollectionsValues()
         {
@@ -53,10 +56,31 @@ namespace Basket.ServerSide
         }
         public void queryOnProduct()
         {
-            //var dataGender = genderCollection.GetCollection<Gender>();
-            //var doc = dataGender.FindAllAs<Gender>(); // exception
             List<GenderDTO> dataGender = genderCollection.AsQueryable<GenderDTO>().ToList();
             List<ProductDTO> dataProduct = productCollection.AsQueryable<ProductDTO>().ToList();
+        }
+
+        public List<ProductDTO> GetAllProductDTO()
+        {
+            List<ProductDTO> dataProduct = productCollection.AsQueryable<ProductDTO>().ToList();
+            return dataProduct;
+        }
+        public ProductDTO GetProductDTOByProductId(long p_productId)
+        {
+            ProductDTO dataProduct = productCollection.AsQueryable<ProductDTO>().Where(x => x.id == p_productId).FirstOrDefault();
+            return dataProduct;
+        }
+
+        public List<GenderDTO> GetAllGenders()
+        {
+            List<GenderDTO> data = genderCollection.AsQueryable<GenderDTO>().ToList();
+            return data;
+        }
+
+        public GenderDTO GetGenderDTOByProductId(long p_genderId)
+        {
+            GenderDTO dataProduct = genderCollection.AsQueryable<GenderDTO>().Where(x => x.id == p_genderId).FirstOrDefault();
+            return dataProduct;
         }
 
         #endregion

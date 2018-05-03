@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Basket.Common.Data;
 
 namespace Basket.ServerSide
 {
@@ -8,8 +10,9 @@ namespace Basket.ServerSide
         {
             ConnectionMongoDB db = new ConnectionMongoDB();
             db.InitMongoClient(ConnectionMongoDB.URL);
-            db.GetCollectionsValues();
-            db.queryOnProduct();
+            List<GenderDTO> genders = db.GetAllGenders();
+            List<ProductDTO> products = db.GetAllProductDTO();
+            ProductDTO currProduct = db.GetProductDTOByProductId(34000196173);
         }
     }
 }
