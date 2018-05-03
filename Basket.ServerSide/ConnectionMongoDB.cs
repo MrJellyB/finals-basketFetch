@@ -15,7 +15,7 @@ namespace Basket.ServerSide
         public const string URL = "mongodb://11:22@193.106.55.172:8888/test";
         public const string PRODUCT_NAME_COLLECTION = "product";
         public const string GENDER_NAME_COLLECTION = "gender";
-
+        public const string CATEGORY_NAME_COLLECTION = "category";
         #endregion
 
         #region C'Tors
@@ -34,7 +34,7 @@ namespace Basket.ServerSide
         public MongoCollection<GenderDTO> genderCollection { get; set; }
         public MongoCollection<ProductDTO> productCollection { get; set; }
 
-
+        public MongoCollection<CategoryDTO> categoryCollection { get; set; }
 
         #endregion
 
@@ -53,6 +53,7 @@ namespace Basket.ServerSide
         {
             this.genderCollection = database.GetCollection<GenderDTO>(GENDER_NAME_COLLECTION);
             this.productCollection = database.GetCollection<ProductDTO>(PRODUCT_NAME_COLLECTION);
+            this.categoryCollection = database.GetCollection<CategoryDTO>(CATEGORY_NAME_COLLECTION);
         }
         public void queryOnProduct()
         {
@@ -81,6 +82,18 @@ namespace Basket.ServerSide
         {
             GenderDTO dataProduct = genderCollection.AsQueryable<GenderDTO>().Where(x => x.id == p_genderId).FirstOrDefault();
             return dataProduct;
+        }
+
+        public CategoryDTO GetCategoryDTOById(long p_category)
+        {
+            CategoryDTO category = categoryCollection.AsQueryable<CategoryDTO>().Where(x => x.id == p_category).FirstOrDefault();
+            return category;
+        }
+
+        public List<CategoryDTO> GetAllCategoriesDTO()
+        {
+            List<CategoryDTO> data = categoryCollection.AsQueryable<CategoryDTO>().ToList();
+            return data;
         }
 
         #endregion

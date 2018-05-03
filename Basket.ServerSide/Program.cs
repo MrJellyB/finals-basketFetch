@@ -13,6 +13,7 @@ namespace Basket.ServerSide
             List<GenderDTO> genders = db.GetAllGenders();
             List<ProductDTO> products = db.GetAllProductDTO();
             ProductDTO currProduct = db.GetProductDTOByProductId(34000196173);
+            List<CategoryDTO> category = db.GetAllCategoriesDTO();
         }
     }
 }
