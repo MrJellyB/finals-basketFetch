@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using System.Text;
 using MongoDB.Bson;
@@ -15,13 +16,23 @@ namespace Basket.Common.Data
         public string _id { get; set; }
 
         [BsonElement]
-        List<BasketItemsDTO> basketItems { get; set; }
+        //[BsonIgnore]
+        public IList<BasketItemsDTO> basketItems { get; set; }
+
+        [BsonRepresentation(BsonType.Double, AllowTruncation = true)]
+        public double totalPrice { get; set; }
+
+        public string streetName { get; set; }
+
+        public string userName { get; set; }
+
+        public int id { get; set; }
     }
 
     public class BasketItemsDTO
     {
-        [BsonElement]
-        public long id { get; set; }
+        [BsonRepresentation(BsonType.Double, AllowTruncation = true)]
+        public double id { get; set; }
         
         public string name { get; set; }
         
