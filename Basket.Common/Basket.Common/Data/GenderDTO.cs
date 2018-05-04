@@ -12,13 +12,9 @@ namespace Basket.Common.Data
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string _id { get; set; }
-
-        [BsonElement]
-        [Display(Name = "value")]
+        
         public string value { get; set; }
-
-        [BsonElement]
-        [Display(Name = "id")]
+        
         public int id { get; set; }
     }
 }
