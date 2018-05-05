@@ -60,7 +60,7 @@ namespace Basket.Common.Data
 
         public string street { get; set; }
 
-        public string city { get; set; }
+        public int? city { get; set; }
     }
 
     public class PeopleAmountDTO
