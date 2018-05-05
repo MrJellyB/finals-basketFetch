@@ -18,6 +18,7 @@ namespace Basket.ServerSide
         public const string CATEGORY_NAME_COLLECTION = "category";
         public const string BASKET_NAME_COLLECTION = "basket";
         public const string CITY_NAME_COLLECTION = "city";
+        public const string USERS_NAME_COLLECTION = "users";
 
         #endregion
 
@@ -43,6 +44,8 @@ namespace Basket.ServerSide
 
         public MongoCollection<CityDTO> cityCollection { get; set; }
 
+        public MongoCollection<UserDTO> userCollection { get; set; }
+
         #endregion
 
         #region Methods
@@ -63,7 +66,7 @@ namespace Basket.ServerSide
             this.categoryCollection = database.GetCollection<CategoryDTO>(CATEGORY_NAME_COLLECTION);
             this.basketCollection = database.GetCollection<BasketDTO>(BASKET_NAME_COLLECTION);
             this.cityCollection = database.GetCollection<CityDTO>(CITY_NAME_COLLECTION);
-
+            this.userCollection = database.GetCollection<UserDTO>(USERS_NAME_COLLECTION);
         }
         public void queryOnProduct()
         {
@@ -114,6 +117,18 @@ namespace Basket.ServerSide
         public List<CityDTO> GetAllCitiesDTO()
         {
             List<CityDTO> data = cityCollection.AsQueryable<CityDTO>().ToList();
+            return data;
+        }
+
+        public List<UserDTO> GetAllUsersDTO()
+        {
+            List<UserDTO> data = userCollection.AsQueryable<UserDTO>().ToList();
+            return data;
+        }
+
+        public UserDTO GetUserDTOByUserName(string strUserName)
+        {
+            UserDTO data = userCollection.AsQueryable<UserDTO>().Where(x => x.userName == strUserName).FirstOrDefault();
             return data;
         }
 
