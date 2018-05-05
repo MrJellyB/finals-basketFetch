@@ -17,6 +17,7 @@ namespace Basket.ServerSide
         public const string GENDER_NAME_COLLECTION = "gender";
         public const string CATEGORY_NAME_COLLECTION = "category";
         public const string BASKET_NAME_COLLECTION = "basket";
+        public const string CITY_NAME_COLLECTION = "city";
 
         #endregion
 
@@ -40,6 +41,8 @@ namespace Basket.ServerSide
 
         public MongoCollection<BasketDTO> basketCollection { get; set; }
 
+        public MongoCollection<CityDTO> cityCollection { get; set; }
+
         #endregion
 
         #region Methods
@@ -59,6 +62,7 @@ namespace Basket.ServerSide
             this.productCollection = database.GetCollection<ProductDTO>(PRODUCT_NAME_COLLECTION);
             this.categoryCollection = database.GetCollection<CategoryDTO>(CATEGORY_NAME_COLLECTION);
             this.basketCollection = database.GetCollection<BasketDTO>(BASKET_NAME_COLLECTION);
+            this.cityCollection = database.GetCollection<CityDTO>(CITY_NAME_COLLECTION);
 
         }
         public void queryOnProduct()
@@ -105,6 +109,11 @@ namespace Basket.ServerSide
         public List<BasketDTO> GetAllBasketsDTO()
         {
             List<BasketDTO> data = basketCollection.AsQueryable<BasketDTO>().ToList();
+            return data;
+        }
+        public List<CityDTO> GetAllCitiesDTO()
+        {
+            List<CityDTO> data = cityCollection.AsQueryable<CityDTO>().ToList();
             return data;
         }
 

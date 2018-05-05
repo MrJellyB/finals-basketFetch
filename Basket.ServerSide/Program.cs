@@ -16,6 +16,7 @@ namespace Basket.ServerSide
             List<ProductDTO> products = db.GetAllProductDTO();
             List<CategoryDTO> category = db.GetAllCategoriesDTO();
             List<BasketDTO> baskets = db.GetAllBasketsDTO();
+            List<CityDTO> cities = db.GetAllCitiesDTO();
         }
     }
 }
