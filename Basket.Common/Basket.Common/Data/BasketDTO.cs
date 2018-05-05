@@ -31,6 +31,10 @@ namespace Basket.Common.Data
 
     public class BasketItemsDTO
     {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string _id { get; set; }
+
         [BsonRepresentation(BsonType.Double, AllowTruncation = true)]
         public double id { get; set; }
         
