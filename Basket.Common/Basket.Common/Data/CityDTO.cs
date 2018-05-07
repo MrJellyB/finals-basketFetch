@@ -5,6 +5,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Basket.Common.Data
 {
+    // clas
     public class CityDTO
     {
         [BsonId]
