@@ -57,6 +57,18 @@ namespace Basket.Common.Data
 
         [BsonElement]
         public IList<CommentsDTO> comments { get; set; }
+
+        public bool VeganFriendly { get; set; }
+
+        public bool GlutenFree { get; set; }
+
+        public bool Organic { get; set; }
+
+        public string Kashrut { get; set; }
+
+        public float ControlledPrice { get; set; }
+
+        public string EfshariBari { get; set; }
     }
 
     public class OldPriceDTO
