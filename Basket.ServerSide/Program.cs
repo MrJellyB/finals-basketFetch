@@ -10,6 +10,12 @@ namespace Basket.ServerSide
         {
             ConnectionMongoDB db = new ConnectionMongoDB();
             db.InitMongoClient(ConnectionMongoDB.URL);
+            db.GenerateRandomBasket(100, 5, 15);
+            //GetDataCheck(db);
+        }
+
+        private static void NewMethod(ConnectionMongoDB db)
+        {
             List<GenderDTO> genders = db.GetAllGenders();
             ProductDTO currProduct2 = db.GetProductDTOByProductId(25675120020);
             ProductDTO currProduct = db.GetProductDTOByProductId(34000196173);
