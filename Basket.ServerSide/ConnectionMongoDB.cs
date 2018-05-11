@@ -10,8 +10,8 @@ namespace Basket.ServerSide
     {
         #region Consts
 
-        //private const string URL = "mongodb://localhost";
-        //public const string URL = "mongodb://localhost:27017";
+        // private const string URL = "mongodb://localhost";
+        // private const string URL = "mongodb://localhost:27017";
         public const string URL = "mongodb://11:22@193.106.55.172:8888/test";
         public const string PRODUCT_NAME_COLLECTION = "product";
         public const string GENDER_NAME_COLLECTION = "gender";
