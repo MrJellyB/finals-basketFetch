@@ -10,7 +10,7 @@ namespace Basket.ServerSide
         {
             ConnectionMongoDB db = new ConnectionMongoDB();
             db.InitMongoClient(ConnectionMongoDB.URL);
-            db.GenerateRandomBasket(100, 5, 15);
+            db.GenerateRandomBasket(1000, 1, 30);
             //GetDataCheck(db);
         }
 
