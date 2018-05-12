@@ -12,6 +12,7 @@ namespace Basket.ServerSide
             db.InitMongoClient(ConnectionMongoDB.URL);
             db.GenerateRandomBasket(1000, 1, 30);
             //GetDataCheck(db);
+            ProductDTO product = db.GetProductByIdFromList(25675120020);
         }
 
         private static void NewMethod(ConnectionMongoDB db)

@@ -100,6 +100,11 @@ namespace Basket.ServerSide
             List<ProductDTO> dataProduct = productCollection.AsQueryable<ProductDTO>().ToList();
         }
 
+        public ProductDTO GetProductByIdFromList(long p_lProductId)
+        {
+            return this.Products.Where(x => x.id == p_lProductId).FirstOrDefault();
+        }
+
         public List<ProductDTO> GetAllProductDTO()
         {
             List<ProductDTO> dataProduct = productCollection.AsQueryable<ProductDTO>().ToList();
