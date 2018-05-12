@@ -11,11 +11,11 @@ namespace Basket.ServerSide
             ConnectionMongoDB db = new ConnectionMongoDB();
             db.InitMongoClient(ConnectionMongoDB.URL);
             db.GenerateRandomBasket(1000, 1, 30);
-            //GetDataCheck(db);
+            GetDataCheck(db);
             ProductDTO product = db.GetProductByIdFromList(25675120020);
         }
 
-        private static void NewMethod(ConnectionMongoDB db)
+        private static void GetDataCheck(ConnectionMongoDB db)
         {
             List<GenderDTO> genders = db.GetAllGenders();
             ProductDTO currProduct2 = db.GetProductDTOByProductId(25675120020);
