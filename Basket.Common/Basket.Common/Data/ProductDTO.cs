@@ -34,7 +34,7 @@ namespace Basket.Common.Data
 
         public int bIsWeighted { get; set; }
 
-        public int calories { get; set; }
+        public int? calories { get; set; }
         
         public string UnitOfMeasure { get; set; }
         
@@ -51,6 +51,8 @@ namespace Basket.Common.Data
         public int ItemStatus { get; set; }
         
         public int category { get; set; }
+
+        public string categoryValue { get; set; }
 
         [BsonElement]
         public IList<OldPriceDTO> oldPriceArray { get; set; }
@@ -74,7 +76,7 @@ namespace Basket.Common.Data
     public class OldPriceDTO
     {
         [BsonRepresentation(BsonType.Double, AllowTruncation = true)]
-        public double curr { get; set; }
+        public double? curr { get; set; }
 
         [BsonRepresentation(BsonType.DateTime, AllowTruncation = true)]
         public DateTime createdTime { get; set; }
