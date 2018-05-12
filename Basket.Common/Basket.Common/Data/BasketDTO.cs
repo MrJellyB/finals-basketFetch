@@ -19,6 +19,9 @@ namespace Basket.Common.Data
         //[BsonIgnore]
         public IList<BasketItemsDTO> basketItems { get; set; }
 
+        [BsonRepresentation(BsonType.DateTime, AllowTruncation = true)]
+        public DateTime createdTime { get; set; }
+
         [BsonRepresentation(BsonType.Double, AllowTruncation = true)]
         public double totalPrice { get; set; }
 

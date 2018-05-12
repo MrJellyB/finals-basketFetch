@@ -69,8 +69,8 @@ namespace Basket.ServerSide
             this.GetCollectionsValues();
 
             // get collection values
-            this.GetData();
-            }
+            //this.GetData();
+        }
         public void GetCollectionsValues()
         {
             this.genderCollection = database.GetCollection<GenderDTO>(GENDER_NAME_COLLECTION);
